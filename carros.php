@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (empty($_SESSION["usuario"])) {
-    header("Location: /projeto/login.php");
+    header("Location: login.php");
     exit;
 }
 ?>
@@ -187,7 +187,7 @@ if (empty($_SESSION["usuario"])) {
             AutoPrime
         </div>
 
-        <a href="/projeto/logout.php" class="sair">
+        <a href="logout.php" class="sair">
             Sair
         </a>
 
@@ -205,7 +205,7 @@ if (empty($_SESSION["usuario"])) {
 
         <video
             class="video-carro"
-            src="/projeto/assets/Electric_sports_car_headlights_p#U2026_20261008142549.mp4"
+            src="assets/Electric_sports_car_headlights_p#U2026_20261008142549.mp4"
             autoplay
             loop
             muted
@@ -240,7 +240,7 @@ if (empty($_SESSION["usuario"])) {
 
                 <p>2024 | Automatico</p>
 
-                <a href="/projeto/detalhes.php?carro=porsche" class="detalhes">
+                <a href="detalhes.php?carro=porsche" class="detalhes">
                     Ver detalhes
                 </a>
 
@@ -261,7 +261,7 @@ if (empty($_SESSION["usuario"])) {
 
                 <p>2024 | Automatico</p>
 
-                <a href="/projeto/detalhes.php?carro=rav4" class="detalhes">
+                <a href="detalhes.php?carro=rav4" class="detalhes">
                     Ver detalhes
                 </a>
 
@@ -282,7 +282,7 @@ if (empty($_SESSION["usuario"])) {
 
                 <p>2024 | Automatico</p>
 
-                <a href="/projeto/detalhes.php?carro=corolla" class="detalhes">
+                <a href="detalhes.php?carro=corolla" class="detalhes">
                     Ver detalhes
                 </a>
 
@@ -303,7 +303,7 @@ if (empty($_SESSION["usuario"])) {
 
                 <p>2023 | Automatico</p>
 
-                <a href="/projeto/detalhes.php?carro=ram" class="detalhes">
+                <a href="detalhes.php?carro=ram" class="detalhes">
                     Ver detalhes
                 </a>
 

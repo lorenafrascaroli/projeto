@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (empty($_SESSION["usuario"])) {
-    header("Location: /projeto/login.php");
+    header("Location: login.php");
     exit;
 }
 
@@ -349,15 +349,15 @@ $dados = $carros[$carro] ?? $carros["porsche"];
 
         <nav>
 
-            <a href="/projeto/entrada.php">
+            <a href="entrada.php">
                 Inicio
             </a>
 
-            <a href="/projeto/carros.php">
+            <a href="carros.php">
                 Carros
             </a>
 
-            <a href="/projeto/index.php" class="btn-conta">
+            <a href="index.php" class="btn-conta">
                 Minha conta
             </a>
 
@@ -368,7 +368,7 @@ $dados = $carros[$carro] ?? $carros["porsche"];
 
     <main class="pagina">
 
-        <a href="/projeto/carros.php" class="voltar">
+        <a href="carros.php" class="voltar">
             <i class="fa-solid fa-arrow-left"></i>
             Voltar para carros
         </a>
@@ -558,7 +558,7 @@ $dados = $carros[$carro] ?? $carros["porsche"];
 
 
                 <a
-                    href="/projeto/financiamento.php?carro=<?php echo $carro; ?>"
+                    href="financiamento.php?carro=<?php echo $carro; ?>"
                     class="btn-financiamento">
 
                     <i class="fa-solid fa-credit-card"></i>

@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     "telefone" => $telefone
                 ]);
 
-                header("Location: /projeto/login.php?cadastro=sucesso");
+                header("Location: login.php?cadastro=sucesso");
                 exit;
             }
         } catch (PDOException $e) {
@@ -169,7 +169,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </div>
             <?php endif; ?>
 
-            <form action="/projeto/cadastro.php" method="POST">
+            <form action="cadastro.php" method="POST">
 
                 <div class="campo">
                     <label for="nome">Nome completo</label>
@@ -205,7 +205,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             </form>
 
-            <a href="/projeto/login.php" class="login">
+            <a href="login.php" class="login">
                 Ja tenho uma conta
             </a>
 

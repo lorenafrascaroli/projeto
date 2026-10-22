@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (empty($_SESSION["usuario"])) {
-    header("Location: /projeto/login.php");
+    header("Location: login.php");
     exit;
 }
 
@@ -120,7 +120,7 @@ if (empty($_SESSION["usuario"])) {
                 Queremos saber como foi sua experiencia com a AutoPrime.
             </p>
 
-            <form action="/projeto/obrigado.php" method="post">
+            <form action="obrigado.php" method="post">
 
                 <label for="estado">
                     Em qual estado voce comprou o carro?

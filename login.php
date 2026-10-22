@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if ($usuario && $senhaCorreta) {
             unset($usuario["senha"]);
             $_SESSION["usuario"] = $usuario;
-            header("Location: /projeto/carros.php");
+            header("Location: carros.php");
             exit;
         } else {
             $erro = "E-mail ou senha incorretos.";
@@ -173,7 +173,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </div>
             <?php endif; ?>
 
-            <form method="POST" action="/projeto/login.php">
+            <form method="POST" action="login.php">
 
                 <div class="campo">
                     <label for="email">E-mail</label>
@@ -190,7 +190,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <button type="submit">Entrar</button>
             </form>
 
-            <a href="/projeto/cadastro.php" class="cadastro">
+            <a href="cadastro.php" class="cadastro">
                 Criar uma conta
             </a>
 

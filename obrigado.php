@@ -105,7 +105,7 @@
             Esperamos que voce aproveite muito seu novo carro!
         </p>
 
-        <a href="/projeto/index.php" class="botao">
+        <a href="index.php" class="botao">
             Voltar para o inicio
         </a>
 

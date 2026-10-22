@@ -5,7 +5,7 @@ index.php -> cadastro.php ou login.php -> carros.php -> detalhes.php -> financia
 Minha conta: minha_conta.php. Sair: logout.php.
 
 ROTAS
-Os links internos usam caminhos relativos (por exemplo, login.php e carros.php). Assim, o projeto pode ficar dentro de uma pasta como /projeto/ no servidor sem precisar usar links fixos como /cadastro.php.
+Os links internos usam caminhos relativos (por exemplo, login.php e carros.php). Assim, as paginas se encontram mesmo que a pasta do projeto tenha outro nome no servidor web.
 
 BANCO DE DADOS
 A conexao esta em conexao.php. Os dados atuais foram mantidos do arquivo que voce enviou: host 192.168.10.33, porta 5432, banco carros, usuario carros. Confirme com o responsavel pelo servidor se esses dados continuam corretos.
@@ -21,9 +21,6 @@ PUBLICACAO
 OBSERVACAO
 Este pacote teve verificacao de sintaxe PHP local, mas nao foi possivel testar a conexao real com o servidor remoto.
 
-
-ROTAS ABSOLUTAS
-Os links internos foram configurados para iniciar com /projeto/, por exemplo /projeto/login.php. Isso funciona quando a pasta do projeto estiver publicada como /projeto no servidor web. Se o servidor publicar a pasta diretamente na raiz do site, os links devem ser alterados para remover /projeto.
 
 INCLUDES PHP
 Os arquivos PHP usam __DIR__ para localizar arquivos locais como conexao.php. Esse caminho do sistema de arquivos e diferente das rotas web.

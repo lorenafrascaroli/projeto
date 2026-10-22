@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (empty($_SESSION["usuario"])) {
-    header("Location: /projeto/login.php");
+    header("Location: login.php");
     exit;
 }
 ?>
@@ -141,7 +141,7 @@ if (empty($_SESSION["usuario"])) {
         </p>
 
 
-        <form action="/projeto/financiamento.php" method="post">
+        <form action="financiamento.php" method="post">
 
             <label for="cpf">
                 CPF
@@ -163,7 +163,7 @@ if (empty($_SESSION["usuario"])) {
         </form>
 
 
-        <a href="/projeto/detalhes.php" class="voltar">
+        <a href="detalhes.php" class="voltar">
             ← Voltar para o carro
         </a>
 
