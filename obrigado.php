@@ -1,3 +1,4 @@
+
 <?php
 // Pagina final do AutoPrime
 ?>
@@ -26,6 +27,7 @@
             justify-content: center;
             align-items: center;
             color: white;
+            padding: 20px;
         }
 
         .caixa {
@@ -54,7 +56,7 @@
             color: #555;
             font-size: 17px;
             line-height: 1.6;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .botao {
@@ -62,15 +64,24 @@
             background: #c90000;
             color: white;
             text-decoration: none;
-            padding: 14px 30px;
+            padding: 14px 25px;
             border-radius: 8px;
             font-weight: bold;
             transition: 0.3s;
+            margin: 5px;
         }
 
         .botao:hover {
             background: #9e0000;
             transform: scale(1.03);
+        }
+
+        .instagram {
+            margin-top: 25px;
+        }
+
+        .contatos {
+            margin-top: 25px;
         }
 
         .rodape {
@@ -85,9 +96,7 @@
 
     <main class="caixa">
 
-        <div class="icone">
-            🚗
-        </div>
+        <div class="icone">🚗</div>
 
         <h1>Obrigado pela compra!</h1>
 
@@ -99,6 +108,24 @@
         <a href="index.php" class="botao">
             Voltar para o inicio
         </a>
+
+        <div class="contatos">
+
+            <p>Fale com a AutoPrime e acompanhe nossas novidades!</p>
+
+            <a href="https://www.instagram.com/nr_autossbo/"
+               target="_blank"
+               class="botao">
+                📷 Instagram
+            </a>
+
+            <a href="https://wa.me/55199999999"
+               target="_blank"
+               class="botao">
+                🟢 WhatsApp
+            </a>
+
+        </div>
 
         <div class="rodape">
             AutoPrime
