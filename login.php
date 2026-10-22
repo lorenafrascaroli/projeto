@@ -1,9 +1,10 @@
 
 <?php
 session_start();
-require_once "conexao.php";
+require_once __DIR__ . "/conexao.php";
 
 $erro = "";
+$mensagem = isset($_GET["cadastro"]) && $_GET["cadastro"] === "sucesso" ? "Cadastro realizado! Entre com seu e-mail e senha." : "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = $_POST["email"];
@@ -16,9 +17,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $usuario = $consulta->fetch(PDO::FETCH_ASSOC);
 
-        if ($usuario && $usuario["senha"] === $senha) {
+        $senhaCorreta = false;
+
+        if ($usuario) {
+            // Aceita senhas protegidas e a senha simples do usuario de teste ja existente.
+            if (password_get_info($usuario["senha"])["algo"] !== null) {
+                $senhaCorreta = password_verify($senha, $usuario["senha"]);
+            } else {
+                $senhaCorreta = ($usuario["senha"] === $senha);
+            }
+        }
+
+        if ($usuario && $senhaCorreta) {
+            unset($usuario["senha"]);
             $_SESSION["usuario"] = $usuario;
-            header("Location: carros.php");
+            header("Location: /projeto/carros.php");
             exit;
         } else {
             $erro = "E-mail ou senha incorretos.";
@@ -121,6 +134,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             color: #d71920;
         }
 
+        .mensagem {
+            background: #173d25;
+            color: #c8f7d5;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
         .erro {
             background: #471b1b;
             color: #ffbaba;
@@ -140,13 +161,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <p>Entre na sua conta</p>
             </div>
 
+            <?php if ($mensagem !== ""): ?>
+                <div class="mensagem">
+                    <?= htmlspecialchars($mensagem) ?>
+                </div>
+            <?php endif; ?>
+
             <?php if ($erro !== ""): ?>
                 <div class="erro">
                     <?= htmlspecialchars($erro) ?>
                 </div>
             <?php endif; ?>
 
-            <form method="POST" action="login.php">
+            <form method="POST" action="/projeto/login.php">
 
                 <div class="campo">
                     <label for="email">E-mail</label>
@@ -163,7 +190,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <button type="submit">Entrar</button>
             </form>
 
-            <a href="cadastro.php" class="cadastro">
+            <a href="/projeto/cadastro.php" class="cadastro">
                 Criar uma conta
             </a>
 

@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (empty($_SESSION["usuario"])) {
+    header("Location: /projeto/login.php");
+    exit;
+}
+
 
 $carro = $_GET["carro"] ?? "porsche";
 
@@ -343,15 +349,15 @@ $dados = $carros[$carro] ?? $carros["porsche"];
 
         <nav>
 
-            <a href="entrada.php">
+            <a href="/projeto/entrada.php">
                 Inicio
             </a>
 
-            <a href="carros.php">
+            <a href="/projeto/carros.php">
                 Carros
             </a>
 
-            <a href="index.php" class="btn-conta">
+            <a href="/projeto/index.php" class="btn-conta">
                 Minha conta
             </a>
 
@@ -362,7 +368,7 @@ $dados = $carros[$carro] ?? $carros["porsche"];
 
     <main class="pagina">
 
-        <a href="carros.php" class="voltar">
+        <a href="/projeto/carros.php" class="voltar">
             <i class="fa-solid fa-arrow-left"></i>
             Voltar para carros
         </a>
@@ -552,7 +558,7 @@ $dados = $carros[$carro] ?? $carros["porsche"];
 
 
                 <a
-                    href="financiamento.php?carro=<?php echo $carro; ?>"
+                    href="/projeto/financiamento.php?carro=<?php echo $carro; ?>"
                     class="btn-financiamento">
 
                     <i class="fa-solid fa-credit-card"></i>

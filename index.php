@@ -138,7 +138,7 @@
                     seu proximo carro.
                 </p>
 
-                <a href="/cadastro.php" class="botao">
+                <a href="/projeto/cadastro.php" class="botao">
                     Criar conta
                 </a>
 

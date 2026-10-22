@@ -1,0 +1,29 @@
+AUTOPRIME - ROTAS E PUBLICACAO NO SERVIDOR
+
+FLUXO PRINCIPAL
+index.php -> cadastro.php ou login.php -> carros.php -> detalhes.php -> financiamento.php -> avaliacao.php -> obrigado.php
+Minha conta: minha_conta.php. Sair: logout.php.
+
+ROTAS
+Os links internos usam caminhos relativos (por exemplo, login.php e carros.php). Assim, o projeto pode ficar dentro de uma pasta como /projeto/ no servidor sem precisar usar links fixos como /cadastro.php.
+
+BANCO DE DADOS
+A conexao esta em conexao.php. Os dados atuais foram mantidos do arquivo que voce enviou: host 192.168.10.33, porta 5432, banco carros, usuario carros. Confirme com o responsavel pelo servidor se esses dados continuam corretos.
+
+A tabela usuarios esperada tem as colunas: id, nome, email, senha, cpf, telefone. O cadastro agora salva no PostgreSQL. Senhas novas sao salvas com password_hash; o login aceita tambem a senha simples do usuario de teste antigo.
+
+PUBLICACAO
+1. Coloque a pasta projeto na pasta web do servidor configurado no MobaXterm (por exemplo, a pasta web definida pelo professor/administrador).
+2. Confirme que o servidor tem PHP, PDO_PGSQL e acesso de rede ao PostgreSQL.
+3. Ajuste conexao.php se o host, banco, usuario ou senha forem diferentes.
+4. Abra o index.php pelo endereco web do servidor, incluindo a pasta do projeto, se houver.
+
+OBSERVACAO
+Este pacote teve verificacao de sintaxe PHP local, mas nao foi possivel testar a conexao real com o servidor remoto.
+
+
+ROTAS ABSOLUTAS
+Os links internos foram configurados para iniciar com /projeto/, por exemplo /projeto/login.php. Isso funciona quando a pasta do projeto estiver publicada como /projeto no servidor web. Se o servidor publicar a pasta diretamente na raiz do site, os links devem ser alterados para remover /projeto.
+
+INCLUDES PHP
+Os arquivos PHP usam __DIR__ para localizar arquivos locais como conexao.php. Esse caminho do sistema de arquivos e diferente das rotas web.

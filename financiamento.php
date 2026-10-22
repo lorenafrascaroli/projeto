@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (empty($_SESSION["usuario"])) {
+    header("Location: /projeto/login.php");
+    exit;
+}
+?>
 
 
 <?php
@@ -211,9 +218,9 @@
         <h1>AutoPrime</h1>
 
         <nav>
-            <a href="index.php">Inicio</a>
-            <a href="carros.php">Carros</a>
-            <a href="cadastro.php">Cadastro</a>
+            <a href="/projeto/index.php">Inicio</a>
+            <a href="/projeto/carros.php">Carros</a>
+            <a href="/projeto/cadastro.php">Cadastro</a>
         </nav>
     </header>
 
@@ -243,7 +250,7 @@
                     para realizar sua proxima compra.
                 </p>
 
-                <a href="avaliacao.php?banco=Santander" class="botao">
+                <a href="/projeto/avaliacao.php?banco=Santander" class="botao">
                     Continuar com Santander
                 </a>
 
@@ -262,7 +269,7 @@
                     para conquistar seu proximo veiculo.
                 </p>
 
-                <a href="avaliacao.php?banco=BV" class="botao">
+                <a href="/projeto/avaliacao.php?banco=BV" class="botao">
                     Continuar com BV
                 </a>
 
@@ -270,7 +277,7 @@
 
         </section>
 
-        <a href="carros.php" class="voltar">
+        <a href="/projeto/carros.php" class="voltar">
             Voltar para os carros
         </a>
 

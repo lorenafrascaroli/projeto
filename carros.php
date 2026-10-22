@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (empty($_SESSION["usuario"])) {
+    header("Location: /projeto/login.php");
+    exit;
+}
+?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -180,7 +187,7 @@
             AutoPrime
         </div>
 
-        <a href="index.php" class="sair">
+        <a href="/projeto/logout.php" class="sair">
             Sair
         </a>
 
@@ -198,7 +205,7 @@
 
         <video
             class="video-carro"
-            src="assets/Electric_sports_car_headlights_p…_20261008142549.mp4"
+            src="/projeto/assets/Electric_sports_car_headlights_p#U2026_20261008142549.mp4"
             autoplay
             loop
             muted
@@ -233,7 +240,7 @@
 
                 <p>2024 | Automatico</p>
 
-                <a href="detalhes.php?carro=porsche" class="detalhes">
+                <a href="/projeto/detalhes.php?carro=porsche" class="detalhes">
                     Ver detalhes
                 </a>
 
@@ -254,7 +261,7 @@
 
                 <p>2024 | Automatico</p>
 
-                <a href="detalhes.php?carro=rav4" class="detalhes">
+                <a href="/projeto/detalhes.php?carro=rav4" class="detalhes">
                     Ver detalhes
                 </a>
 
@@ -275,7 +282,7 @@
 
                 <p>2024 | Automatico</p>
 
-                <a href="detalhes.php?carro=corolla" class="detalhes">
+                <a href="/projeto/detalhes.php?carro=corolla" class="detalhes">
                     Ver detalhes
                 </a>
 
@@ -296,7 +303,7 @@
 
                 <p>2023 | Automatico</p>
 
-                <a href="detalhes.php?carro=ram" class="detalhes">
+                <a href="/projeto/detalhes.php?carro=ram" class="detalhes">
                     Ver detalhes
                 </a>
 

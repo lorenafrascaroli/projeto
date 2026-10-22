@@ -1,6 +1,7 @@
 
 <?php
 session_start();
+require_once __DIR__ . "/conexao.php";
 
 $erro = "";
 
@@ -12,51 +13,35 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $senha = $_POST["senha"] ?? "";
     $confirmar = $_POST["confirmar"] ?? "";
 
-    $arquivo = __DIR__ . "/usuarios.json";
-    $usuarios = [];
-
-    if (file_exists($arquivo)) {
-        $dados = file_get_contents($arquivo);
-        $usuarios = json_decode($dados, true) ?? [];
-    }
-
-    if ($senha !== $confirmar) {
-        $erro = "As senhas nao sao iguais.";
-    } elseif ($nome === "" || $email === "" || $cpf === "" || $telefone === "" || $senha === "") {
+    if ($nome === "" || $email === "" || $cpf === "" || $telefone === "" || $senha === "") {
         $erro = "Preencha todos os campos.";
+    } elseif ($senha !== $confirmar) {
+        $erro = "As senhas nao sao iguais.";
     } else {
-        $existe = false;
+        try {
+            $consulta = $pdo->prepare("SELECT id FROM usuarios WHERE email = :email");
+            $consulta->execute(["email" => $email]);
 
-        foreach ($usuarios as $usuario) {
-            if ($usuario["email"] === $email) {
-                $existe = true;
-                break;
-            }
-        }
-
-        if ($existe) {
-            $erro = "Este e-mail ja esta cadastrado.";
-        } else {
-            $usuarios[] = [
-                "nome" => $nome,
-                "email" => $email,
-                "cpf" => $cpf,
-                "telefone" => $telefone,
-                "senha" => password_hash($senha, PASSWORD_DEFAULT)
-            ];
-
-            $salvou = file_put_contents(
-                $arquivo,
-                json_encode($usuarios, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE),
-                LOCK_EX
-            );
-
-            if ($salvou !== false) {
-                header("Location: /projeto/login.php");
-                exit;
+            if ($consulta->fetch(PDO::FETCH_ASSOC)) {
+                $erro = "Este e-mail ja esta cadastrado.";
             } else {
-                $erro = "Nao foi possivel salvar o cadastro.";
+                $senhaProtegida = password_hash($senha, PASSWORD_DEFAULT);
+                $sql = "INSERT INTO usuarios (nome, email, senha, cpf, telefone)
+                        VALUES (:nome, :email, :senha, :cpf, :telefone)";
+                $inserir = $pdo->prepare($sql);
+                $inserir->execute([
+                    "nome" => $nome,
+                    "email" => $email,
+                    "senha" => $senhaProtegida,
+                    "cpf" => $cpf,
+                    "telefone" => $telefone
+                ]);
+
+                header("Location: /projeto/login.php?cadastro=sucesso");
+                exit;
             }
+        } catch (PDOException $e) {
+            $erro = "Nao foi possivel salvar o cadastro. Confira a conexao com o banco.";
         }
     }
 }
@@ -220,7 +205,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             </form>
 
-            <a href="/login.php" class="login">
+            <a href="/projeto/login.php" class="login">
                 Ja tenho uma conta
             </a>
 

@@ -3,6 +3,10 @@
 session_start();
 
 $usuario = $_SESSION["usuario"] ?? null;
+if (!$usuario) {
+    header("Location: /projeto/login.php");
+    exit;
+}
 $financiamentos = $_SESSION["financiamentos"] ?? [];
 ?>
 <!DOCTYPE html>
@@ -208,9 +212,9 @@ $financiamentos = $_SESSION["financiamentos"] ?? [];
     <div class="logo">AutoPrime</div>
 
     <nav>
-        <a href="index.php">Inicio</a>
-        <a href="carros.php">Carros</a>
-        <a href="minha_conta.php">Minha conta</a>
+        <a href="/projeto/index.php">Inicio</a>
+        <a href="/projeto/carros.php">Carros</a>
+        <a href="/projeto/minha_conta.php">Minha conta</a>
     </nav>
 </header>
 
@@ -226,7 +230,7 @@ $financiamentos = $_SESSION["financiamentos"] ?? [];
         <section class="card vazio">
             <h2>Entre na sua conta</h2>
             <p>Faca login para consultar seus dados e financiamentos.</p>
-            <a class="botao" href="login.php">Fazer login</a>
+            <a class="botao" href="/projeto/login.php">Fazer login</a>
         </section>
 
     <?php else: ?>
@@ -264,7 +268,7 @@ $financiamentos = $_SESSION["financiamentos"] ?? [];
 
                 <div class="vazio">
                     <p>Voce ainda nao possui financiamentos registrados.</p>
-                    <a class="botao" href="carros.php">Ver carros</a>
+                    <a class="botao" href="/projeto/carros.php">Ver carros</a>
                 </div>
 
             <?php else: ?>

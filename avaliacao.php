@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (empty($_SESSION["usuario"])) {
+    header("Location: /projeto/login.php");
+    exit;
+}
+
 // Pagina de avaliacao do AutoPrime
 ?>
 
@@ -114,7 +120,7 @@
                 Queremos saber como foi sua experiencia com a AutoPrime.
             </p>
 
-            <form action="obrigado.php" method="post">
+            <form action="/projeto/obrigado.php" method="post">
 
                 <label for="estado">
                     Em qual estado voce comprou o carro?

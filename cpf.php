@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (empty($_SESSION["usuario"])) {
+    header("Location: /projeto/login.php");
+    exit;
+}
+?>
 
 <?php
 // Página de consulta de CPF da AutoPrime
@@ -134,7 +141,7 @@
         </p>
 
 
-        <form action="financiamento.php" method="post">
+        <form action="/projeto/financiamento.php" method="post">
 
             <label for="cpf">
                 CPF
@@ -156,7 +163,7 @@
         </form>
 
 
-        <a href="detalhes.php" class="voltar">
+        <a href="/projeto/detalhes.php" class="voltar">
             ← Voltar para o carro
         </a>
 
