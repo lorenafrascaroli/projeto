@@ -1,0 +1,128 @@
+```css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #111b1c;
+}
+
+header {
+    background: white;
+    padding: 20px 50px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #d71920;
+}
+
+.sair {
+    color: #555;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.sair:hover {
+    color: #d71920;
+}
+
+.conteudo {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.titulo {
+    margin-bottom: 30px;
+}
+
+.titulo h1 {
+    font-size: 28px;
+    color: white;
+}
+
+.titulo p {
+    margin-top: 6px;
+    color: #b8c0c1;
+}
+
+.carros {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.carro {
+    background: white;
+    padding: 18px;
+    border-radius: 15px;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+.imagem {
+    height: 160px;
+    background: #e9edf2;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #777;
+}
+
+.carro h2 {
+    margin-top: 15px;
+    font-size: 19px;
+    color: #222;
+}
+
+.carro p {
+    margin-top: 7px;
+    color: #777;
+    font-size: 14px;
+}
+
+.detalhes {
+    display: block;
+    margin-top: 15px;
+    padding: 11px;
+
+    text-align: center;
+    text-decoration: none;
+
+    background: #d71920;
+    color: white;
+
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.detalhes:hover {
+    background: #aa1117;
+}
+
+@media (max-width: 800px) {
+
+    .carros {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        padding: 20px;
+    }
+}
+```
